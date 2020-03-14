@@ -10,7 +10,8 @@ export const config: Config = {
       args: ['--headless', '--disable-gpu']
     }
   },
-  specs: ['../test/google.spec.js'],
+  specs: ['../test/**/*.spec.js'],
+  getPageTimeout: 1000,
   onPrepare: () => {
     reporter();
     browser.ignoreSynchronization = true;
