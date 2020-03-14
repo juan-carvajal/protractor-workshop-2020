@@ -1,16 +1,16 @@
-import { Config, browser } from "protractor";
-import { reporter } from "./helpers/reporter";
+import { Config, browser } from 'protractor';
+import { reporter } from './helpers/reporter';
 
 export const config: Config = {
-  framework: "jasmine",
+  framework: 'jasmine',
   SELENIUM_PROMISE_MANAGER: false,
   capabilities: {
-    browserName: "chrome",
+    browserName: 'chrome',
     chromeOptions: {
-      args: ["--headless", "--disable-gpu"]
+      args: ['--headless', '--disable-gpu']
     }
   },
-  specs: ["../test/google.spec.js"],
+  specs: ['../test/google.spec.js'],
   onPrepare: () => {
     reporter();
     browser.ignoreSynchronization = true;
