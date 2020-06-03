@@ -1,11 +1,12 @@
 import { browser , $ } from 'protractor';
-import { MenuContentPage , ProductPage , AddedModal } from '../src/page';
+import { MenuContentPage , ProductPage , AddedModal , SummaryStep } from '../src/page';
 
 describe('Buy a t-shirt', () => {
 
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productPage: ProductPage = new ProductPage();
   const addedModal: AddedModal = new AddedModal();
+  const summaryStep: SummaryStep = new SummaryStep();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -27,7 +28,9 @@ describe('Buy a t-shirt', () => {
     // await $('[style*="display: block;"] .button-container > a').click();
     addedModal.proceedToCheckout();
     await(browser.sleep(3000));
-    await $('.cart_navigation span').click();
+    // await $('.cart_navigation span').click();
+    summaryStep.toSignin();
+
     await(browser.sleep(3000));
 
     await $('#email').sendKeys('aperdomobo@gmail.com');
